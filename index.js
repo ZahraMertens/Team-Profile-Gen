@@ -229,14 +229,35 @@ function addMembers(){
 function completeTeam(){
     //console.log(teamMembers)
 
+    let html = [`
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+  <!--<link rel="stylesheet" href="./assets/css/style.css" />-->
+  <title>Team Profile</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-light bg-danger">
+        <div class="container-fluid">
+          <span class="navbar-brand mb-4 h1">My Team</span>
+        </div>
+    </nav>
+
+    <main>
+    `]
+
     for (var i = 0; i < teamMembers.length; i++){
         var role = teamMembers[i].role
         var name = teamMembers[i].name
         var id = teamMembers[i].id
         var email = teamMembers[i].email
-       // const office = teamMembers[i].office
-       // const gitHub = teamMembers[i].gitHub
-        //const school = teamMembers[i].school
         
         let card = `
         <div class="card" style="width: 18rem;">
@@ -245,7 +266,7 @@ function completeTeam(){
             </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">Employee ID: ${id}</li>
-              <li class="list-group-item">Email: <a href="mailto:${email}>${email}</a></li>\n`
+              <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>\n`
 
         
         if (role === "Manager"){
@@ -261,7 +282,21 @@ function completeTeam(){
             </div>`
         }
 
+        html.push(card)
     }
+
+    let htmlEnd = `
+</main>
+</body>
+</html>
+`
+
+    html.push(htmlEnd)
+
+    fs.writeFile("new.html", html.join(""), function (err){
+        
+    })
+    //console.log(html)
 }
 
 
