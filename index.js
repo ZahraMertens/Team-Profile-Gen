@@ -274,7 +274,7 @@ function completeTeam(){
             </div>`
         }
         if (role === "Engineer"){
-            card += `<li class="list-group-item">GitHub username: ${teamMembers[i].gitHub}</li>\n</ul>\n
+            card += `<li class="list-group-item">GitHub username: <a href="https://github.com/${teamMembers[i].gitHub}">${teamMembers[i].gitHub}</a></li>\n</ul>\n
             </div>`
         }
         if (role === "Intern"){
