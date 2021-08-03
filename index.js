@@ -186,7 +186,7 @@ function renderIntern(){
         const internID = data.id;
         const internEmail = data.email;
         const internSchool = data.school;
-        const intern = new Manager(internName, internID, internEmail, internSchool);
+        const intern = new Intern(internName, internID, internEmail, internSchool);
         teamMembers.push(intern);
         addMembers();
     })
@@ -202,7 +202,7 @@ function addMembers(){
             choices: [
                 "YES, add Engineer!",
                 "YES, add Intern!",
-                "NO, the Team is complete"
+                "NO, the Team is complete!"
             ]
         }
     ])
@@ -217,12 +217,52 @@ function addMembers(){
                 if (addMembers === "YES, add Intern!"){
                     return renderIntern();
                 }
-            //case "NO, the Team is complete":
-             //   completeTeam();
+            case "NO, the Team is complete!":
+                if (addMembers === "NO, the Team is complete!"){
+                    return completeTeam();
+                }
+              
         }
     })
 }
 
+function completeTeam(){
+    //console.log(teamMembers)
+
+    for (var i = 0; i < teamMembers.length; i++){
+        var role = teamMembers[i].role
+        var name = teamMembers[i].name
+        var id = teamMembers[i].id
+        var email = teamMembers[i].email
+       // const office = teamMembers[i].office
+       // const gitHub = teamMembers[i].gitHub
+        //const school = teamMembers[i].school
+        
+        let card = `
+        <div class="card" style="width: 18rem;">
+            <div class="card-header bg-success">
+              ${role} <br> ${name}
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Employee ID: ${id}</li>
+              <li class="list-group-item">Email: <a href="mailto:${email}>${email}</a></li>\n`
+
+        
+        if (role === "Manager"){
+            card += `<li class="list-group-item">Office Number: ${teamMembers[i].office}</li>\n</ul>\n
+            </div>`
+        }
+        if (role === "Engineer"){
+            card += `<li class="list-group-item">GitHub username: ${teamMembers[i].gitHub}</li>\n</ul>\n
+            </div>`
+        }
+        if (role === "Intern"){
+            card += `<li class="list-group-item">School: ${teamMembers[i].school}</li>\n</ul>\n
+            </div>`
+        }
+
+    }
+}
 
 
 
