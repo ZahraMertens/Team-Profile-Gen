@@ -1,6 +1,6 @@
 const Employee = require("../lib/Employee");
 
-describe("Employee", ()=>{
+describe("Employee", () =>{
     it("Gets name via cunstructor parameter", () => {
         const name = "Jamie";
         const paramName = new Employee("Jamie")
@@ -28,5 +28,10 @@ describe("Employee", ()=>{
         const email = "hellotest.net";
         const emp = new Employee("name", "id", email)
         expect(emp.validateEmail()).toBe(false)
+    })
+
+    it("getRole() returns 'Employee'", () => {
+        const emp = new Employee("name", "id", "email")
+        expect(emp.getRole()).toBe("Employee")
     })
 })
