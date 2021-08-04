@@ -14,5 +14,4 @@ describe("Engineer", () => {
         expect(eng.getRole()).toBe("Engineer")
     })
 
-    
 })

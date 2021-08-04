@@ -3,8 +3,7 @@ const inquirer = require("inquirer")
 const Engineer = require("./lib/Engineer")
 const Manager = require("./lib/Manager")
 const Intern = require("./lib/Intern");
-const { inherits } = require("util");
-const renderHtml = require("./utils/html")
+const { getMaxListeners } = require("process");
 
 const teamMembers = [];
 
@@ -225,7 +224,9 @@ function addMembers(){
     })
 }
 
-function writeCards(){
+async function writeCards(){
+
+    var allCards = [];
 
     for (var i = 0; i < teamMembers.length; i++){
         var role = teamMembers[i].role
@@ -269,13 +270,17 @@ function writeCards(){
    `
     }
 
-    fs.appendFile("./Demo/team.html", card, function (err){
+    allCards += card
+    
+    }
+
+    return fs.appendFile("./Demo/team.html", allCards, function (err){
          if (err) {
              return console.error(err)
         };
         return
     })
-    }
+
 }
     
 function writeFooter (){
@@ -340,3 +345,4 @@ function init(){
 }
 
 init();
+
