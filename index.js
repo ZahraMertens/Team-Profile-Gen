@@ -8,7 +8,6 @@ const renderHtml = require("./utils/html")
 
 const teamMembers = [];
 
-
 function renderManager(){
     inquirer.prompt([
     {
@@ -226,13 +225,6 @@ function addMembers(){
     })
 }
 
-async function completeTeam(){
-   // console.log(teamMembers)
-   await writeCards();
-   console.log("\x1b[32m", "\n------Your HTML file has successfully been generated. Please move to the /Demo folder to see the result!------\n")
-   writeFooter();
-}
-
 function writeCards(){
 
     for (var i = 0; i < teamMembers.length; i++){
@@ -275,21 +267,22 @@ function writeCards(){
    </div>
    
    `
-        }
+    }
 
-        fs.appendFile("./Demo/team.html", card, function (err){
-            if (err) {
-                return console.error(err)
-            };
-            return
-        })
+    fs.appendFile("./Demo/team.html", card, function (err){
+         if (err) {
+             return console.error(err)
+        };
+        return
+    })
     }
 }
     
 function writeFooter (){
 
     const htmlEnd = 
-        `</main>
+    `
+   </main>
 
  </body>
 </html>
@@ -324,7 +317,7 @@ function writeHeader(){
       <h1>My Team</h1> 
     </nav>
 
- <main>
+  <main>
  `
 
     fs.writeFile("./Demo/team.html", htmlHead, function(err) {
@@ -332,6 +325,13 @@ function writeHeader(){
             return console.error(err)
         }
     })
+}
+
+async function completeTeam(){
+   // console.log(teamMembers)
+   await writeCards();
+   console.log("\x1b[32m", "\n------Your HTML file has successfully been generated. Please move to the /Demo folder to see the result!------\n")
+   writeFooter();
 }
 
 function init(){
