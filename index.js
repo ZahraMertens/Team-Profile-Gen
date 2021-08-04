@@ -226,10 +226,86 @@ function addMembers(){
     })
 }
 
-function completeTeam(){
-    //console.log(teamMembers)
+async function completeTeam(){
+   // console.log(teamMembers)
+   await writeCards();
+   console.log("\x1b[32m", "\n------Your HTML file has successfully been generated. Please move to the /Demo folder to see the result!------\n")
+   writeFooter();
+}
 
-    let html = [`
+function writeCards(){
+
+    for (var i = 0; i < teamMembers.length; i++){
+        var role = teamMembers[i].role
+        var name = teamMembers[i].name
+        var id = teamMembers[i].id
+        var email = teamMembers[i].email
+        
+        let card = `
+   <div class="card" style="width: 18rem;">
+     <div class="card-header bg-success">
+       <h1 class="header-h1">${role}</h1>
+       <h2 class="header-h2">${name}</h2>
+     </div>
+      <ul class="list-group list-group-flush">
+       <li class="list-group-item">Employee ID: ${id}</li>
+       <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>\n`
+
+        
+        if (role === "Manager"){
+            card += 
+            `       <li class="list-group-item">Office Number: ${teamMembers[i].office}</li>
+      </ul>
+   </div>
+   
+   `
+        }
+        if (role === "Engineer"){
+            card += 
+            `       <li class="list-group-item">GitHub username: <a href="https://github.com/${teamMembers[i].gitHub}">${teamMembers[i].gitHub}</a></li>
+      </ul>
+   </div>
+   
+   `
+        }
+        if (role === "Intern"){
+            card += 
+            `       <li class="list-group-item">School: ${teamMembers[i].school}</li>
+      </ul>
+   </div>
+   
+   `
+        }
+
+        fs.appendFile("./Demo/team.html", card, function (err){
+            if (err) {
+                return console.error(err)
+            };
+            return
+        })
+    }
+}
+    
+function writeFooter (){
+
+    const htmlEnd = 
+        `</main>
+
+ </body>
+</html>
+    `
+
+    fs.appendFile("./Demo/team.html", htmlEnd, function (err){
+        if (err) {
+            return console.error(err)
+        };
+        return
+    })
+}
+
+function writeHeader(){
+
+    const htmlHead = `
 <!DOCTYPE html>
 <html lang="en">
 
@@ -248,76 +324,18 @@ function completeTeam(){
       <h1>My Team</h1> 
     </nav>
 
-    <main>
-    `]
+ <main>
+ `
 
-    for (var i = 0; i < teamMembers.length; i++){
-        var role = teamMembers[i].role
-        var name = teamMembers[i].name
-        var id = teamMembers[i].id
-        var email = teamMembers[i].email
-        
-        let card = `
-    <div class="card" style="width: 18rem;">
-        <div class="card-header bg-success">
-            <h1 class="header-h1">${role}</h1>
-            <h2 class="header-h2">${name}</h2>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Employee ID: ${id}</li>
-            <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>\n`
-
-        
-        if (role === "Manager"){
-            card += `
-            <li class="list-group-item">Office Number: ${teamMembers[i].office}</li>
-          </ul>
-        </div>`
-        }
-        if (role === "Engineer"){
-            card += `
-            <li class="list-group-item">GitHub username: <a href="https://github.com/${teamMembers[i].gitHub}">${teamMembers[i].gitHub}</a></li>
-          </ul>
-        </div>`
-        }
-        if (role === "Intern"){
-            card += `
-            <li class="list-group-item">School: ${teamMembers[i].school}</li>
-          </ul>
-        </div>`
-        }
-
-        html.push(card)
-    }
-
-    let htmlEnd = `
-    
-    </main>
-  </body>
-</html>
-`
-
-    html.push(htmlEnd)
-
-    fs.writeFile("new.html", html.join(""), function (err){
-        
-    })
-    //console.log(html)
-}
-
-
-
-
-/*function writeToFile(){
-    fs.writeFile("team.html", renderHtml(), function(err) {
+    fs.writeFile("./Demo/team.html", htmlHead, function(err) {
         if(err){
             return console.error(err)
         }
     })
-}*/
+}
 
 function init(){
-    //writeToFile();
+    writeHeader();
     renderManager();
 }
 
