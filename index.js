@@ -314,7 +314,7 @@ function writeFooter (){
 
     finishedHTML.push(htmlEnd)
     
-    fs.writeFile("./docs/team.html", finishedHTML.join(""), function (err){
+    fs.writeFile("./docs/index.html", finishedHTML.join(""), function (err){
         if (err) {
             return console.error(err)
         };
