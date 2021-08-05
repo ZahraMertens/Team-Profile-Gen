@@ -8,6 +8,32 @@ const { getMaxListeners } = require("process");
 const teamMembers = [];
 const finishedHTML = [];
 
+
+function teamName(){
+    console.log("\x1b[32m", "\n------Welcome to the Team Profile Generator!------\n")
+    inquirer.prompt([
+        {
+            type: 'input',
+            message: 'What is your Team Name?',
+            name: 'team',
+            //Validate if input is empty, if empty user can't go to next question
+            //If input valid user goes to next question
+            validate: function (input) {
+                if (input === ""){
+                    return "Team name must be entered"
+                } 
+                return true
+            }   
+        }
+        ])
+        .then(function(data){
+            const teamName = data.team;
+            console.log("\x1b[33m", `\n------  Awesome! Please answer following questions about ${teamName}'s team members:  ------\n`)
+            writeHeader(teamName)
+            renderManager();
+        })
+}
+
 function renderManager(){
     inquirer.prompt([
     {
@@ -242,13 +268,13 @@ async function writeCards(){
        <h2 class="header-h2">${name}</h2>
      </div>
       <ul class="list-group list-group-flush">
-       <li class="list-group-item">Employee ID: ${id}</li>
-       <li class="list-group-item">📧 Email: <a href="mailto:${email}">${email}</a></li>\n`
+       <li class="list-group-item"><span class="span-li">Employee ID: </span>${id}</li>
+       <li class="list-group-item"><span class="span-li">📧 Email: </span><a href="mailto:${email}">${email}</a></li>\n`
 
         
         if (role === "Manager"){
             card += 
-            `       <li class="list-group-item">☎️ Office Number: ${teamMembers[i].office}</li>
+            `       <li class="list-group-item"><span class="span-li">☎️ Office Number: </span>${teamMembers[i].office}</li>
       </ul>
    </div>
    
@@ -256,7 +282,7 @@ async function writeCards(){
         }
         if (role === "Engineer"){
             card += 
-            `       <li class="list-group-item">🐱 GitHub username: <a href="https://github.com/${teamMembers[i].gitHub}">${teamMembers[i].gitHub}</a></li>
+            `       <li class="list-group-item"><span class="span-li">🐱 GitHub username: </span><a href="https://github.com/${teamMembers[i].gitHub}">${teamMembers[i].gitHub}</a></li>
       </ul>
    </div>
    
@@ -264,7 +290,7 @@ async function writeCards(){
         }
         if (role === "Intern"){
             card += 
-            `       <li class="list-group-item">🏫 School: ${teamMembers[i].school}</li>
+            `       <li class="list-group-item"><span class="span-li">🏫 School: </span>${teamMembers[i].school}</li>
       </ul>
    </div>
    
@@ -288,6 +314,7 @@ function writeFooter (){
 
     const htmlEnd = 
     `
+     </div>
    </main>
 
  </body>
@@ -295,7 +322,7 @@ function writeFooter (){
     `
 
     finishedHTML.push(htmlEnd)
-
+    
     fs.writeFile("./Demo/team.html", finishedHTML.join(""), function (err){
         if (err) {
             return console.error(err)
@@ -303,16 +330,11 @@ function writeFooter (){
         return
     })
 
-
-    /*fs.appendFile("./Demo/team.html", htmlEnd, function (err){
-        if (err) {
-            return console.error(err)
-        };
-        return
-    })*/
 }
 
-function writeHeader(){
+function writeHeader(teamName){
+
+    const header = teamName;
 
     const htmlHead = `
 <!DOCTYPE html>
@@ -329,31 +351,27 @@ function writeHeader(){
 
 <body>
 
-    <nav class="navbar navbar-light bg-danger">
-      <h1>My Team</h1> 
-    </nav>
+    <header>
+      <h1>My Team - ${header}</h1> 
+    </header>
 
   <main>
+
+     <div class="cards-container">
  `
     finishedHTML.push(htmlHead)
 
-    /*fs.writeFile("./Demo/team.html", htmlHead, function(err) {
-        if(err){
-            return console.error(err)
-        }
-    })*/
 }
 
 function completeTeam() {
-   // console.log(teamMembers)
    writeCards();
    console.log("\x1b[32m", "\n------Your HTML file has successfully been generated. Please move to the /Demo folder to see the result!------\n")
    writeFooter();
 }
 
 function init(){
-    writeHeader();
-    renderManager();
+ 
+    teamName();
 }
 
 init();
