@@ -77,8 +77,8 @@ function renderManager(){
         message: 'What is the Team Manager`s office phone number',
         name: 'office',
         validate: function (input) {
-            if (input === ""){
-                return "Office Number must be entered"
+            if (!/^\d*(\.\d+)?$/.test(input)){
+                return "Number can't contain any letters or specail characters!"
             } 
             return true
         }   
@@ -297,17 +297,8 @@ async function writeCards(){
    `
         }
 
-    //allCards += card
     finishedHTML.push(card)
     }
-
-    /*return fs.appendFile("./Demo/team.html", allCards, function (err){
-         if (err) {
-             return console.error(err)
-        };
-        return
-    })*/
-
 }
     
 function writeFooter (){
@@ -323,7 +314,7 @@ function writeFooter (){
 
     finishedHTML.push(htmlEnd)
     
-    fs.writeFile("./Demo/team.html", finishedHTML.join(""), function (err){
+    fs.writeFile("./docs/team.html", finishedHTML.join(""), function (err){
         if (err) {
             return console.error(err)
         };
