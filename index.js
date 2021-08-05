@@ -6,6 +6,7 @@ const Intern = require("./lib/Intern");
 const { getMaxListeners } = require("process");
 
 const teamMembers = [];
+const finishedHTML = [];
 
 function renderManager(){
     inquirer.prompt([
@@ -47,7 +48,7 @@ function renderManager(){
     },
     {
         type: 'input',
-        message: 'What is the Team Manager`s office number',
+        message: 'What is the Team Manager`s office phone number',
         name: 'office',
         validate: function (input) {
             if (input === ""){
@@ -226,7 +227,7 @@ function addMembers(){
 
 async function writeCards(){
 
-    var allCards = [];
+    //var allCards = [];
 
     for (var i = 0; i < teamMembers.length; i++){
         var role = teamMembers[i].role
@@ -242,12 +243,12 @@ async function writeCards(){
      </div>
       <ul class="list-group list-group-flush">
        <li class="list-group-item">Employee ID: ${id}</li>
-       <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>\n`
+       <li class="list-group-item">📧 Email: <a href="mailto:${email}">${email}</a></li>\n`
 
         
         if (role === "Manager"){
             card += 
-            `       <li class="list-group-item">Office Number: ${teamMembers[i].office}</li>
+            `       <li class="list-group-item">☎️ Office Number: ${teamMembers[i].office}</li>
       </ul>
    </div>
    
@@ -255,7 +256,7 @@ async function writeCards(){
         }
         if (role === "Engineer"){
             card += 
-            `       <li class="list-group-item">GitHub username: <a href="https://github.com/${teamMembers[i].gitHub}">${teamMembers[i].gitHub}</a></li>
+            `       <li class="list-group-item">🐱 GitHub username: <a href="https://github.com/${teamMembers[i].gitHub}">${teamMembers[i].gitHub}</a></li>
       </ul>
    </div>
    
@@ -263,23 +264,23 @@ async function writeCards(){
         }
         if (role === "Intern"){
             card += 
-            `       <li class="list-group-item">School: ${teamMembers[i].school}</li>
+            `       <li class="list-group-item">🏫 School: ${teamMembers[i].school}</li>
       </ul>
    </div>
    
    `
+        }
+
+    //allCards += card
+    finishedHTML.push(card)
     }
 
-    allCards += card
-    
-    }
-
-    return fs.appendFile("./Demo/team.html", allCards, function (err){
+    /*return fs.appendFile("./Demo/team.html", allCards, function (err){
          if (err) {
              return console.error(err)
         };
         return
-    })
+    })*/
 
 }
     
@@ -293,12 +294,22 @@ function writeFooter (){
 </html>
     `
 
-    fs.appendFile("./Demo/team.html", htmlEnd, function (err){
+    finishedHTML.push(htmlEnd)
+
+    fs.writeFile("./Demo/team.html", finishedHTML.join(""), function (err){
         if (err) {
             return console.error(err)
         };
         return
     })
+
+
+    /*fs.appendFile("./Demo/team.html", htmlEnd, function (err){
+        if (err) {
+            return console.error(err)
+        };
+        return
+    })*/
 }
 
 function writeHeader(){
@@ -324,17 +335,18 @@ function writeHeader(){
 
   <main>
  `
+    finishedHTML.push(htmlHead)
 
-    fs.writeFile("./Demo/team.html", htmlHead, function(err) {
+    /*fs.writeFile("./Demo/team.html", htmlHead, function(err) {
         if(err){
             return console.error(err)
         }
-    })
+    })*/
 }
 
-async function completeTeam(){
+function completeTeam() {
    // console.log(teamMembers)
-   await writeCards();
+   writeCards();
    console.log("\x1b[32m", "\n------Your HTML file has successfully been generated. Please move to the /Demo folder to see the result!------\n")
    writeFooter();
 }
