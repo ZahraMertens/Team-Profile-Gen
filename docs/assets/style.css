@@ -21,6 +21,10 @@ a:hover {
     color: rgb(0, 167, 14);
 }
 
+.cards-container {
+    margin-bottom: 50px;
+}
+
 .card {
     margin-right: 20px!important;
     display: inline-block;
