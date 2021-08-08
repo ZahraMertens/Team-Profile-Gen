@@ -5,9 +5,12 @@ const Engineer = require("./lib/Engineer")
 const Manager = require("./lib/Manager")
 const Intern = require("./lib/Intern");
 
+//Import file to generate html
 const renderHtml = require("./utilsHTML/generateHtml")
 
+//Empty aeeay to push all members 
 const teamMembers = [];
+//Empty array to get team name
 const teamHeader = [];
 
 function teamName(){
@@ -267,9 +270,9 @@ function writeToFile(fileName, data){
     })
 }
 
+//Start with init to know where to start
 function init(){
     teamName();
 }
 
 init();
-
