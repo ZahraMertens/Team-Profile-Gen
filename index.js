@@ -55,11 +55,12 @@ function renderManager(){
         message: 'What is the Team Manager`s employee ID?',
         name: 'id',
         validate: function (input) {
-            if (input === ""){
-                return "ID must be entered"
-            } 
-            return true
-        }   
+        
+        if (!/^[A-Za-z0-9]*$/.test(input)){
+            return "Id can't contain special characters!"
+        }
+        return true
+        } 
     },
     {
         type: 'input',
@@ -116,11 +117,13 @@ function renderEngineer(){
         message: 'What is the Engineer`s employee ID?',
         name: 'id',
         validate: function (input) {
-            if (input === ""){
-                return "ID must be entered"
-            } 
-            return true
-        }   
+         
+        //Regex for only numbers and letters upper case and lower case
+        if (!/^[A-Za-z0-9]*$/.test(input)){
+            return "Id can't contain special characters!"
+        }
+        return true
+        } 
     },
     {
         type: 'input',
@@ -150,7 +153,7 @@ function renderEngineer(){
         const engineerName = data.name;
         const engineerID = data.id;
         const engineerEmail = data.email;
-        const engineerUsername = data.username;
+        const engineerUsername = data.username.trim(); //Trim username in case user puts space so link is working
         const engineer = new Engineer(engineerName, engineerID, engineerEmail, engineerUsername);
         teamMembers.push(engineer);
         addMembers();
@@ -177,10 +180,11 @@ function renderIntern(){
         message: 'What is the Intern`s employee ID?',
         name: 'id',
         validate: function (input) {
-            if (input === ""){
-                return "ID must be entered"
-            } 
-            return true
+        
+            if (!/^[A-Za-z0-9]*$/.test(input)){
+            return "Id can't contain special characters!"
+        }
+        return true
         }   
     },
     {

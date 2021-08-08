@@ -2,6 +2,7 @@ function renderCards(teamMembers){
 
    const allCards = [];
 
+   //itterate over array from index.js with all members add during prompt questions
    for (var i = 0; i < teamMembers.length; i++){
     var role = teamMembers[i].role
     var name = teamMembers[i].name
@@ -18,7 +19,10 @@ function renderCards(teamMembers){
            <li class="list-group-item"><span class="span-li">Employee ID: </span>${id}</li>
            <li class="list-group-item"><span class="span-li">📧 Email: </span><a href="mailto:${email}">${email}</a></li>\n`
 
-    
+    //Depending on position add diferent list element
+    //Manager = office number 
+    //Intern = school 
+    //Engineer = GitHub username
     if (role === "Manager"){
         card += 
         `           <li class="list-group-item"><span class="span-li">☎️ Office Number: </span>${teamMembers[i].office}</li>
@@ -51,7 +55,7 @@ function renderCards(teamMembers){
  return allCards.join("")
 }
 
-
+//renderHtml returns the whole html including all cards generated
 function renderHtml (teamHeader, teamMembers){
   const header = teamHeader;
   const members = teamMembers;
