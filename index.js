@@ -282,7 +282,7 @@ async function writeCards(){
         }
         if (role === "Engineer"){
             card += 
-            `       <li class="list-group-item"><span class="span-li">🐱 GitHub username: </span><a href="https://github.com/${teamMembers[i].gitHub}">${teamMembers[i].gitHub}</a></li>
+            `       <li class="list-group-item"><span class="span-li">🐱 GitHub username: </span><a href="https://github.com/${teamMembers[i].gitHub}" target='_blank'>${teamMembers[i].gitHub}</a></li>
       </ul>
    </div>
    
