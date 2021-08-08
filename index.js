@@ -5,13 +5,13 @@ const Engineer = require("./lib/Engineer")
 const Manager = require("./lib/Manager")
 const Intern = require("./lib/Intern");
 
-const renderHtml = require("./utils/generateHtml")
+const renderHtml = require("./utilsHTML/generateHtml")
 
 const teamMembers = [];
 const teamHeader = [];
 
 function teamName(){
-    console.log("\x1b[32m", "\n------Welcome to the Team Profile Generator!------\n")
+    console.log("\x1b[32m", "\n========================== Welcome to the Team Profile Generator! ==========================\n")
     inquirer.prompt([
         {
             type: 'input',
