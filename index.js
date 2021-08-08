@@ -1,13 +1,14 @@
 const fs = require("fs");
 const inquirer = require("inquirer")
+
 const Engineer = require("./lib/Engineer")
 const Manager = require("./lib/Manager")
 const Intern = require("./lib/Intern");
-const { getMaxListeners } = require("process");
+
+const renderHtml = require("./utils/generateHtml")
 
 const teamMembers = [];
-const finishedHTML = [];
-
+const teamHeader = [];
 
 function teamName(){
     console.log("\x1b[32m", "\n------Welcome to the Team Profile Generator!------\n")
@@ -29,7 +30,7 @@ function teamName(){
         .then(function(data){
             const teamName = data.team;
             console.log("\x1b[33m", `\n------  Awesome! Please answer following questions about ${teamName}'s team members:  ------\n`)
-            writeHeader(teamName)
+            teamHeader.push(teamName)
             renderManager();
         })
 }
@@ -244,124 +245,25 @@ function addMembers(){
                 }
             case "NO, the Team is complete!":
                 if (addMembers === "NO, the Team is complete!"){
-                    return completeTeam();
+                    return writeToFile("./docs/index.html", renderHtml(teamHeader, teamMembers));
                 }
               
         }
     })
 }
 
-async function writeCards(){
-
-    //var allCards = [];
-
-    for (var i = 0; i < teamMembers.length; i++){
-        var role = teamMembers[i].role
-        var name = teamMembers[i].name
-        var id = teamMembers[i].id
-        var email = teamMembers[i].email
-        
-        let card = `
-   <div class="card" style="width: 18rem;">
-     <div class="card-header bg-success">
-       <h1 class="header-h1">${role}</h1>
-       <h2 class="header-h2">${name}</h2>
-     </div>
-      <ul class="list-group list-group-flush">
-       <li class="list-group-item"><span class="span-li">Employee ID: </span>${id}</li>
-       <li class="list-group-item"><span class="span-li">📧 Email: </span><a href="mailto:${email}">${email}</a></li>\n`
-
-        
-        if (role === "Manager"){
-            card += 
-            `       <li class="list-group-item"><span class="span-li">☎️ Office Number: </span>${teamMembers[i].office}</li>
-      </ul>
-   </div>
-   
-   `
-        }
-        if (role === "Engineer"){
-            card += 
-            `       <li class="list-group-item"><span class="span-li">🐱 GitHub username: </span><a href="https://github.com/${teamMembers[i].gitHub}" target='_blank'>${teamMembers[i].gitHub}</a></li>
-      </ul>
-   </div>
-   
-   `
-        }
-        if (role === "Intern"){
-            card += 
-            `       <li class="list-group-item"><span class="span-li">🏫 School: </span>${teamMembers[i].school}</li>
-      </ul>
-   </div>
-   
-   `
-        }
-
-    finishedHTML.push(card)
-    }
-}
-    
-function writeFooter (){
-
-    const htmlEnd = 
-    `
-     </div>
-   </main>
-
- </body>
-</html>
-    `
-
-    finishedHTML.push(htmlEnd)
-    
-    fs.writeFile("./docs/index.html", finishedHTML.join(""), function (err){
-        if (err) {
+function writeToFile(fileName, data){
+    fs.writeFile(fileName, data, function(err) {
+        if(err){
             return console.error(err)
-        };
-        return
+            
+        } else {
+            return console.log("\x1b[32m", "\n------Your HTML file has successfully been generated. Please move to the /Demo folder to see the result!------\n")
+        }
     })
-
-}
-
-function writeHeader(teamName){
-
-    const header = teamName;
-
-    const htmlHead = `
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="./assets/style.css"/>
-  <title>Team Profile</title>
-</head>
-
-<body>
-
-    <header>
-      <h1>My Team - ${header}</h1> 
-    </header>
-
-  <main>
-
-     <div class="cards-container">
- `
-    finishedHTML.push(htmlHead)
-
-}
-
-function completeTeam() {
-   writeCards();
-   console.log("\x1b[32m", "\n------Your HTML file has successfully been generated. Please move to the /Demo folder to see the result!------\n")
-   writeFooter();
 }
 
 function init(){
- 
     teamName();
 }
 

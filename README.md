@@ -9,7 +9,7 @@
 * [👀 Demo deployed Team-Profile page](https://zahramertens.github.io/Team-Profile-Gen/)
 
 
-## Table if Contents
+## Table of Contents
 1. [General Information](#general-information)
 2. [Task Description](#task-description)
 3. [Installation Instructions](#installation-instructions)
@@ -42,7 +42,7 @@ As TDD (Test-Driven-Development) is an essentail part in web development to main
 
 * 7️⃣ When all questions are answered you will see the index.html file in the docs folder.
 
-**Note** ❗ Make sure that your the information provided is spelled correct in order to make sure that all URLs are working ❗
+**Note** ❗ Make sure that your the information provided is spelled correct in order to make sure that all URLs are working
 
 ## Technologies Used
 
@@ -83,7 +83,7 @@ AS A manager, I WANT to generate a webpage that displays my team's basic info SO
 
 ## Bonus
 
-* 🏆 WHEN I start he application THEN I have to enter my Teams name which will be the individual header of the webpage
+* 🏆 WHEN I start the application THEN I have to enter my Teams name which will be the individual header of the webpage
 
 * 🏆 WHEN I start the application THEN I am presented with a welcome message
 
@@ -91,14 +91,14 @@ AS A manager, I WANT to generate a webpage that displays my team's basic info SO
 
 🎥 The video shows the usage of the code in the terminal to generate a new Readme File:
 
-![Code-Demo](./assets/Images/code.gif)
+![Code-Demo](./)
 
 🎥 The video shows an example of a Readme file generated with the node.js application and its features:
 
-![Deployed-Readme-Demo](./assets/Images/demopage.gif)
+![Deployed-HTML-Demo](./)
 
 🎥 The video shows that all tests are passing when "npm run test" is entered:
-![Deployed-Readme-Demo](./assets/Images/demopage.gif)
+![Test-Demo](./)
 
 ## Credits
 
