@@ -1,6 +1,6 @@
 # Team Profile Generator
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)[![Contributor](https://img.shields.io/badge/Contributor-1-green.svg)]
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)![Contributor](https://img.shields.io/badge/Contributor-1-green.svg)![Nodejs](https://img.shields.io/badge/App-with-NodeJS-red.svg)
 
 ## General Information
 
