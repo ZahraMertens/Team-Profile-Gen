@@ -96,7 +96,7 @@ AS A manager, I WANT to generate a webpage that displays my team's basic info SO
 
 ## Mock-Up
 
-🎥 The video shows the usage of the code in the terminal to generate a new Readme File:
+🎥 The video shows the usage of the code in the terminal to generate a new Team Profile html page:
 
 ![Code-Demo](./GIFfolder/prompt.gif)
 
