@@ -98,7 +98,7 @@ AS A manager, I WANT to generate a webpage that displays my team's basic info SO
 
 🎥 The video shows the usage of the code in the terminal to generate a new Readme File:
 
-![Code-Demo](./)
+![Code-Demo](./GIFfolder/prompt.gif)
 
 🎥 The video shows an example of team profile html page generated with the node.js application and its features:
 
