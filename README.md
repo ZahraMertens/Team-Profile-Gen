@@ -105,7 +105,7 @@ AS A manager, I WANT to generate a webpage that displays my team's basic info SO
 ![Deployed-HTML-Demo](./)
 
 🎥 The video shows that all tests are passing when "npm run test" is entered:
-![Test-Demo](./)
+![Test-Demo](./GIFfolder/tests.gif)
 
 ## Credits
 
