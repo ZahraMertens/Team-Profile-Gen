@@ -113,6 +113,5 @@ AS A manager, I WANT to generate a webpage that displays my team's basic info SO
 * https://www.npmjs.com/package/inquirer
 * https://www.voidcanvas.com/make-console-log-output-colorful-and-stylish-in-browser-node/
 * https://jestjs.io/docs/expect#tomatchobjectobject
-* 
-* 
-* 
+
+© 2021 Zahra Mertens, Team Profile Generator.
