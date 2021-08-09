@@ -43,26 +43,38 @@ describe("Employee", () =>{
     })
 
 
+    describe("Constructor testing", () => {
 
-    it("Gets name via cunstructor parameter", () => {
+        it("Gets name via cunstructor parameter", () => {
             const name = "Jamie";
             const paramName = new Employee("Jamie")
             expect(paramName.name).toBe(name)
+        })
+
+        it("Gets ID via cunstructor parameter", () => {
+            const idValue = 12;
+            const paramId = new Employee("name", idValue)
+            expect(paramId.id).toBe(idValue)
+        })
+
+        it("Gets Email via constructor", () => {
+            const email = "test@test.com"
+            const emp = new Employee("name", "id", email)
+            expect(emp.email).toBe(email)
+        })
+
+        it("getRole() returns 'Employee'", () => {
+            const emp = new Employee("name", "id", "email")
+            expect(emp.getRole()).toBe("Employee")
+        })
+
+        it("getID() returns 'this.id'", () => {
+            const emp = new Employee("name", "id", "email")
+            expect(emp.getID()).toBe(emp.id)
+        })
+        
     })
-    it("Gets ID via cunstructor parameter", () => {
-        const idValue = 12;
-        const paramId = new Employee("name", idValue)
-        expect(paramId.id).toBe(idValue)
-    })
+
 
     
-
-    
-
-    it("getRole() returns 'Employee'", () => {
-        const emp = new Employee("name", "id", "email")
-        expect(emp.getRole()).toBe("Employee")
-    })
-
-   
 })

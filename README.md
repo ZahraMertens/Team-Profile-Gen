@@ -2,6 +2,8 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![Contributor](https://img.shields.io/badge/Contributor-1-green.svg) ![Nodejs](https://img.shields.io/badge/AppWith-NodeJS-red.svg) ![JavaScript](https://img.shields.io/badge/AppWith-JavaScript-red.svg) ![Framework](https://img.shields.io/badge/Framework-Bootstrap-purple.svg)
 
+
+
 ## General Information
 
 * [🎥 Walkthrough Video of Application with Google Drive]()
@@ -103,3 +105,8 @@ AS A manager, I WANT to generate a webpage that displays my team's basic info SO
 ## Credits
 
 * https://www.npmjs.com/package/inquirer
+* https://www.voidcanvas.com/make-console-log-output-colorful-and-stylish-in-browser-node/
+* https://jestjs.io/docs/expect#tomatchobjectobject
+* 
+* 
+* 
