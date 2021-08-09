@@ -84,4 +84,11 @@ describe("Manager", () => {
             expect(man.office).not.toBeNaN()
          })
     })
+
+    describe("Manager = role", () => {
+    
+        it("getRole() returns 'Manager'", () => {
+            expect(new Manager().getRole()).toBe("Manager")
+        })
+    })
 })

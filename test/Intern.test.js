@@ -73,4 +73,16 @@ describe("Intern", () => {
         })
     })
 
+    describe("Functions to return correct value for constructor parameter", () => {
+            
+        it("getRole() return 'intern'", () => {
+            expect(new Intern().getRole()).toBe("Intern")
+        })
+
+        it("getSchool to return this.school", () => {
+            const intern = new Intern("name", "id", "email", "Uni of Sydney");
+            expect(intern.getSchool()).toBe("Uni of Sydney")
+        })
+    })
+
 })

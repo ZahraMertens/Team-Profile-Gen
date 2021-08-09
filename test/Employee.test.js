@@ -72,6 +72,16 @@ describe("Employee", () =>{
             const emp = new Employee("name", "id", "email")
             expect(emp.getID()).toBe(emp.id)
         })
+
+        it("getName() returns 'this.name'", () => {
+            const emp = new Employee("Lisa")
+            expect(emp.getName()).toBe("Lisa")
+        })
+
+        it("getEmail() returns 'this.email'", () => {
+            const emp = new Employee("Lisa", "id", "zahra@gmx.net")
+            expect(emp.getEmail()).toBe(emp.email)
+        })
         
     })
 
