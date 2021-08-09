@@ -100,11 +100,12 @@ AS A manager, I WANT to generate a webpage that displays my team's basic info SO
 
 ![Code-Demo](./)
 
-🎥 The video shows an example of a Readme file generated with the node.js application and its features:
+🎥 The video shows an example of team profile html page generated with the node.js application and its features:
 
-![Deployed-HTML-Demo](./)
+![Deployed-HTML-Demo](./GIFfolder/page.gif)
 
 🎥 The video shows that all tests are passing when "npm run test" is entered:
+
 ![Test-Demo](./GIFfolder/npmtest.gif)
 
 ## Credits
