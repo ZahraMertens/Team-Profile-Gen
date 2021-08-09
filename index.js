@@ -48,7 +48,7 @@ function renderManager(){
         //If input valid user goes to next question
         validate: function (input) {
             if (input === ""){
-                return "GitHub username must be entered"
+                return "Managers name must be entered"
             } 
             return true
         }   
@@ -61,6 +61,9 @@ function renderManager(){
         
         if (!/^[A-Za-z0-9]*$/.test(input)){
             return "Id can't contain special characters!"
+        
+        } else if (input === ""){
+            return "You must provide an ID"
         }
         return true
         } 
@@ -84,17 +87,17 @@ function renderManager(){
         validate: function (input) {
             if (!/^\d*(\.\d+)?$/.test(input)){
                 return "Number can't contain any letters or specail characters!"
-            } 
+            
+            } else if (input === ""){
+                return "You must enter an office phone number"
+            }
             return true
         }   
     }
     ])
-    .then(function(data){
-        const managerName = data.name;
-        const managerID = data.id;
-        const managerEmail = data.email;
-        const managerOfficeNr = data.office;
-        const manager = new Manager(managerName, managerID, managerEmail, managerOfficeNr);
+    .then(function(managerInput){
+        const {name, id, email, office} = managerInput
+        const manager = new Manager(name, id, email, office);
         teamMembers.push(manager);
         addMembers();
     })
@@ -110,7 +113,7 @@ function renderEngineer(){
         //If input valid user goes to next question
         validate: function (input) {
             if (input === ""){
-                return "GitHub username must be entered"
+                return "Engineer's name must be entered"
             } 
             return true
         }   
@@ -124,6 +127,9 @@ function renderEngineer(){
         //Regex for only numbers and letters upper case and lower case
         if (!/^[A-Za-z0-9]*$/.test(input)){
             return "Id can't contain special characters!"
+        
+        } else if (input === ""){
+            return "You must provide an employee ID"
         }
         return true
         } 
@@ -146,18 +152,16 @@ function renderEngineer(){
         name: 'username',
         validate: function (input) {
             if (input === ""){
-                return "Office Number must be entered"
+                return "Username must be entered"
             } 
             return true
         }   
     }
     ])
-    .then(function(data){
-        const engineerName = data.name;
-        const engineerID = data.id;
-        const engineerEmail = data.email;
-        const engineerUsername = data.username.trim(); //Trim username in case user puts space so link is working
-        const engineer = new Engineer(engineerName, engineerID, engineerEmail, engineerUsername);
+    .then(function(engineerInput){
+        const {name, id, email, username} = engineerInput
+        //Trim username in case user puts space so link is working
+        const engineer = new Engineer(name, id, email, username.trim());
         teamMembers.push(engineer);
         addMembers();
     })
@@ -173,7 +177,7 @@ function renderIntern(){
         //If input valid user goes to next question
         validate: function (input) {
             if (input === ""){
-                return "GitHub username must be entered"
+                return "Intern's name must be entered"
             } 
             return true
         }   
@@ -184,9 +188,13 @@ function renderIntern(){
         name: 'id',
         validate: function (input) {
         
-            if (!/^[A-Za-z0-9]*$/.test(input)){
+        if (!/^[A-Za-z0-9]*$/.test(input)){
             return "Id can't contain special characters!"
+        
+        } else if (input === ""){
+            return "You must provide an employee ID"
         }
+
         return true
         }   
     },
@@ -208,24 +216,21 @@ function renderIntern(){
         name: 'school',
         validate: function (input) {
             if (input === ""){
-                return "Office Number must be entered"
+                return "School must be provided"
             } 
             return true
         }   
     }
     ])
-    .then(function(data){
-        const internName = data.name;
-        const internID = data.id;
-        const internEmail = data.email;
-        const internSchool = data.school;
-        const intern = new Intern(internName, internID, internEmail, internSchool);
+    .then(function(internInput){
+        const {name, id, email, school} = internInput
+        const intern = new Intern(name, id, email, school);
         teamMembers.push(intern);
         addMembers();
     })
 }
 
-
+//------------------Function where user can decide wheather to add more members or to complete and generate index.html-------
 function addMembers(){
     inquirer.prompt([
         {
