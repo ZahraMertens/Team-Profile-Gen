@@ -276,7 +276,7 @@ function writeToFile(fileName, data){
             return console.error(err)
             
         } else {
-            return console.log("\x1b[32m", "\n------Your HTML file has successfully been generated. Please move to the /Demo folder to see the result!------\n")
+            return console.log("\x1b[32m", "\n------Your HTML file has successfully been generated. Please move to the /docs folder to see the result!------\n")
         }
     })
 }

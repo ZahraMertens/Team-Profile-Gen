@@ -6,7 +6,7 @@
 
 ## General Information
 
-* [🎥 Walkthrough Video of Application with Google Drive]()
+* [🎥 Walkthrough Video of Application with Google Drive](https://drive.google.com/file/d/16WeGlBU4AyHxdRtSsZPWI94JhTj-ZwAK/view?usp=sharing)
 * [🐱 URL of the GitHub Repo](https://github.com/ZahraMertens/Team-Profile-Gen.git)
 * [👀 Demo deployed Team-Profile page](https://zahramertens.github.io/Team-Profile-Gen/)
 
