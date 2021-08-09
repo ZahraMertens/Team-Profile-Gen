@@ -15,6 +15,7 @@
 1. [General Information](#general-information)
 2. [Task Description](#task-description)
 3. [Installation Instructions](#installation-instructions)
+4. [Testing Instructions](#testing-instructions)
 4. [Technologies Used](#technologies-used)
 5. [User Story](#user-story)
 6. [Actual Behaviour](#actual-behaviour)
@@ -45,6 +46,10 @@ As TDD (Test-Driven-Development) is an essentail part in web development to main
 * 7️⃣ When all questions are answered you will see the index.html file in the docs folder.
 
 **Note** ❗ Make sure that your the information provided is spelled correct in order to make sure that all URLs are working
+
+## Testing Instructions
+
+* When the user cloned the repository on its local device, it is essential that the user runs "npm install" to ensure that the jest package for testing is installed. When the user then runs "npm run test" in the terminal all test should pass. 
 
 ## Technologies Used
 
