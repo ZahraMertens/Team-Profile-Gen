@@ -25,11 +25,6 @@ describe("Engineer", () => {
             const eng = new Engineer("name", "id", "zahra@test.com")
             expect(eng.email).toBe("zahra@test.com")
         })
-
-        it("Can get role from class", () => {
-            const eng = new Engineer();
-            expect(eng.getRole()).toBe("Engineer")
-        })    
     
     })
 
@@ -46,6 +41,14 @@ describe("Engineer", () => {
             const eng = new Engineer ("name", "id", email);
             expect(eng.email).not.toMatch(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)
         })
+    })
+
+    describe("Role to return Engineer", () => {
+
+        it("getRole() returns Engineer", () => {
+            const eng = new Engineer();
+            expect(eng.getRole()).toBe("Engineer")
+        })  
     })
 
 })
