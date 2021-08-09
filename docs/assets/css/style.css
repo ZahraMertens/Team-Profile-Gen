@@ -18,7 +18,7 @@ header {
 }
 
 main {
-    width: 50%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 70px;
@@ -35,6 +35,7 @@ a:hover {
 }
 
 .card {
+    width: 30%!important;
     margin-right: 20px!important;
     display: inline-block;
     margin-top: 20px;
@@ -63,14 +64,34 @@ a:hover {
     font-weight: bold;
 }
 
-@media screen and (max-width: 1700px){
+@media screen and (max-width: 1300px){
     main {
-        width: 70%;
+        width: 90%;
     }
+
+    
 }
 
 @media screen and (max-width: 887px){
     main {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 727px){
+    main {
+        width: 60%;
+    }
+    .card {
+        width: 70%!important;
+    }
+}
+
+@media screen and (max-width: 500px){
+    main {
         width: 90%;
+    }
+    .card {
+        width: 100%!important;
     }
 }
