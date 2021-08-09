@@ -13,6 +13,8 @@ const teamMembers = [];
 //Empty array to get team name
 const teamHeader = [];
 
+
+//------------------Prompts to enter team name and welcome message-------
 function teamName(){
     console.log("\x1b[32m", "\n========================== Welcome to the Team Profile Generator! ==========================\n")
     inquirer.prompt([
@@ -38,6 +40,7 @@ function teamName(){
         })
 }
 
+//------------------Prompts for Manager-------
 function renderManager(){
     inquirer.prompt([
     {
@@ -103,6 +106,7 @@ function renderManager(){
     })
 }
 
+//------------------Prompts for Engineer-------
 function renderEngineer(){
     inquirer.prompt([
     {
@@ -167,6 +171,7 @@ function renderEngineer(){
     })
 }
 
+//------------------Prompts for Intern-------
 function renderIntern(){
     inquirer.prompt([
     {
@@ -264,6 +269,7 @@ function addMembers(){
     })
 }
 
+//Write file and error testing 
 function writeToFile(fileName, data){
     fs.writeFile(fileName, data, function(err) {
         if(err){

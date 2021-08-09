@@ -1,8 +1,8 @@
 function renderCards(teamMembers){
-  console.log(teamMembers)
-   const allCards = [];
+   
+  const allCards = [];
 
-   //itterate over array from index.js with all members add during prompt questions
+   //iterate over array from index.js with all members add during prompt questions
    for (var i = 0; i < teamMembers.length; i++){
     var role = teamMembers[i].role
     var name = teamMembers[i].name
