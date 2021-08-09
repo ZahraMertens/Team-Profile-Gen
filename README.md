@@ -1,6 +1,6 @@
 # Team Profile Generator
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![Contributor](https://img.shields.io/badge/Contributor-1-green.svg) ![Nodejs](https://img.shields.io/badge/AppWith-NodeJS-red.svg) ![JavaScript](https://img.shields.io/badge/AppWith-JavaScript-red.svg) ![Framework](https://img.shields.io/badge/Framework-Bootstrap-purple.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![Contributor](https://img.shields.io/badge/Contributor-1-green.svg) ![Nodejs](https://img.shields.io/badge/AppWith-NodeJS-red.svg) ![JavaScript](https://img.shields.io/badge/AppWith-JavaScript-red.svg) ![Framework](https://img.shields.io/badge/Framework-Bootstrap-purple.svg) ![Npm](https://img.shields.io/badge/npm-jest-blue.svg) ![Npm](https://img.shields.io/badge/npm-inquirer-blue.svg)
 
 
 
@@ -16,12 +16,12 @@
 2. [Task Description](#task-description)
 3. [Installation Instructions](#installation-instructions)
 4. [Testing Instructions](#testing-instructions)
-4. [Technologies Used](#technologies-used)
-5. [User Story](#user-story)
-6. [Actual Behaviour](#actual-behaviour)
-7. [Bonus](#bonus)
-8. [Mock-Up](#mock-up)
-9. [Credits](#credits)
+5. [Technologies Used](#technologies-used)
+6. [User Story](#user-story)
+7. [Actual Behaviour](#actual-behaviour)
+8. [Bonus](#bonus)
+9. [Mock-Up](#mock-up)
+10. [Credits](#credits)
 
 
 ## Task Description
