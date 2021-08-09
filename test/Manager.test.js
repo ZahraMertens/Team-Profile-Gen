@@ -84,5 +84,4 @@ describe("Manager", () => {
             expect(man.office).not.toBeNaN()
          })
     })
-
 })
