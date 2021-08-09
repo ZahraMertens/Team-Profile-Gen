@@ -60,4 +60,17 @@ describe("Intern", () => {
         })
     })
 
+    describe("Constructor parameters to be a specific type of integer or string", () => {
+            
+        it("Name to return a string", () => {
+            const intern = new Intern("name");
+            expect(intern.name).toEqual("name")
+        })
+
+        it("School to be a property of Inter class with a string value", () => {
+            const intern = new Intern("name", "id", "email", "Uni of Sydney");
+            expect(intern).toHaveProperty("school", "Uni of Sydney")
+        })
+    })
+
 })
